@@ -6,3 +6,7 @@ const double gravity = 1000;
 const double jumpStrength = -300;
 const double groundHeight = 200;
 const double groundScrollingSpeed = 200;
+const double pipeInterval = 2;
+const double pipeGap = 150;
+const double minPipeHeight = 50;
+const double pipeWidth = 60;
