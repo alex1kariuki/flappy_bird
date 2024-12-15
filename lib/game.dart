@@ -69,6 +69,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
         context: buildContext!,
         builder: (context) => AlertDialog(
               title: const Text('Game Over!'),
+              content: Text("High Score: $score"),
               actions: [
                 TextButton(
                     onPressed: () {
@@ -86,6 +87,7 @@ class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection {
   void resetGame() {
     bird.position = Vector2(birdStartX, birdStartY);
     bird.velocity = 0;
+    score = 0;
     isGameOver = false;
 
     // Remove all pipes from the game
