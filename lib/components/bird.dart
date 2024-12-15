@@ -1,18 +1,19 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flappy_bird/constants.dart';
 
 class Bird extends SpriteComponent {
   // Init Bird
 
   // Initialize Position & Size
-  Bird() : super(position: Vector2(100, 100), size: Vector2(60, 40));
+  Bird()
+      : super(
+            position: Vector2(birdStartX, birdStartY),
+            size: Vector2(birdWidth, birdHeight));
 
   // Physical World Properties
   double velocity = 0;
-  final double gravity = 1800;
-  final double jumpStrength = -300;
-
   // Load
   @override
   FutureOr<void> onLoad() async {
@@ -32,6 +33,6 @@ class Bird extends SpriteComponent {
     velocity += gravity * dt;
 
     // Update birds position based on current velocity
-    position.y = velocity * dt;
+    position.y += velocity * dt;
   }
 }
