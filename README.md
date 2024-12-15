@@ -14,11 +14,14 @@ Here are short video recordings of the game running on Android and iOS:
 
 - **Android Demo**
 
-  _[Insert video link or embed video here]_
+![Screenshot_1734296025](https://github.com/user-attachments/assets/73e4b3b8-9bc3-431e-ac4d-16b0961c70eb)
+
 
 - **iOS Demo**
 
-  _[Insert video link or embed video here]_
+https://github.com/user-attachments/assets/3f5ecfbb-91b3-4519-91c3-6e46934e9db8
+
+
 
 ## Getting Started
 
