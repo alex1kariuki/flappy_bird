@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flappy_bird/constants.dart';
 import 'package:flappy_bird/game.dart';
 
-class Ground extends SpriteComponent with HasGameRef<FlappyBirdGame> {
+class Ground extends SpriteComponent
+    with HasGameRef<FlappyBirdGame>, CollisionCallbacks {
   // Init
   Ground() : super();
   // Load
@@ -16,6 +18,9 @@ class Ground extends SpriteComponent with HasGameRef<FlappyBirdGame> {
 
     // Load ground sprite image
     sprite = await Sprite.load('ground.png');
+
+    // Add collision box
+    add(RectangleHitbox());
   }
 
   // Update => every second

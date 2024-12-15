@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flappy_bird/components/ground.dart';
 import 'package:flappy_bird/constants.dart';
+import 'package:flappy_bird/game.dart';
 
-class Bird extends SpriteComponent {
+class Bird extends SpriteComponent with CollisionCallbacks {
   // Init Bird
 
   // Initialize Position & Size
@@ -19,6 +22,9 @@ class Bird extends SpriteComponent {
   FutureOr<void> onLoad() async {
     // Load bird sprite image
     sprite = await Sprite.load('bird.png');
+
+    // Add a hit box
+    add(RectangleHitbox());
   }
 
   // Jump
@@ -34,5 +40,16 @@ class Bird extends SpriteComponent {
 
     // Update birds position based on current velocity
     position.y += velocity * dt;
+  }
+
+  // Add Collision logic with other items
+  @override
+  void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollision(intersectionPoints, other);
+
+    // Check if collision is with ground
+    if (other is Ground) {
+      (parent as FlappyBirdGame).gameOver();
+    }
   }
 }
